@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "roadmap-engine"
+version = "0.1.0"
+description = "Prototype NPV prioritisation and pod scheduling engine, demonstrated on synthetic data."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Jaishri Rai" }]
+dependencies = ["pandas>=2.0", "openpyxl>=3.1"]
+
+[project.scripts]
+roadmap-run = "roadmap_engine.cli:main"
+
+[project.optional-dependencies]
+charts = ["matplotlib>=3.7", "xlsxwriter>=3.1"]
+dev = ["pytest>=7", "matplotlib>=3.7", "xlsxwriter>=3.1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
